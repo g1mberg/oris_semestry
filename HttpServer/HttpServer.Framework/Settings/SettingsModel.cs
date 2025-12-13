@@ -7,8 +7,10 @@ public class SettingsModel
     public string? StaticDirectoryPath { get; init; }
     public string? Domain { get; init; }
     public string? Port { get; init; }
-
     public string? ConnectionString { get; set; }
+    public int? MaxErrorRetries { get; set; }
+    public int?	ProcessingIntervalSeconds { get; set; }
+    
 
     public static SettingsModel ReadJSON(string path)
     {

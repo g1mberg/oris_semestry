@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyORM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfa5037cc9719670c03e3dc7f8b8f1d29e7a164b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50e7df96cbdab5c3d2a1e8605936f2a76f629c61")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyORM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyORM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

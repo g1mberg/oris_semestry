@@ -1,4 +1,4 @@
-﻿C:\Users\adk03\Downloads\ConsoleApp1\MiniTemplateEngine\bin\Debug\net9.0\HttpServer.deps.json
+C:\Users\adk03\Downloads\ConsoleApp1\MiniTemplateEngine\bin\Debug\net9.0\HttpServer.deps.json
 C:\Users\adk03\Downloads\ConsoleApp1\MiniTemplateEngine\bin\Debug\net9.0\HttpServer.runtimeconfig.json
 C:\Users\adk03\Downloads\ConsoleApp1\MiniTemplateEngine\bin\Debug\net9.0\Program.cs
 C:\Users\adk03\Downloads\ConsoleApp1\MiniTemplateEngine\bin\Debug\net9.0\HttpServer.exe
@@ -253,3 +253,16 @@ C:\kfu\oris\HW\oris\semestryworks\SW1\back\HttpServer\MiniTemplateEngine\obj\Deb
 C:\kfu\oris\HW\oris\semestryworks\SW1\back\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\refint\MiniTemplateEngine.dll
 C:\kfu\oris\HW\oris\semestryworks\SW1\back\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\MiniTemplateEngine.pdb
 C:\kfu\oris\HW\oris\semestryworks\SW1\back\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\ref\MiniTemplateEngine.dll
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\bin\Debug\net9.0\Abstraction\IHtmlTemplateRenderer.cs
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\bin\Debug\net9.0\MiniTemplateEngine.deps.json
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\bin\Debug\net9.0\MiniTemplateEngine.dll
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\bin\Debug\net9.0\MiniTemplateEngine.pdb
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\MiniTemplateEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\MiniTemplateEngine.AssemblyInfoInputs.cache
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\MiniTemplateEngine.AssemblyInfo.cs
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\MiniTemplateEngine.csproj.CoreCompileInputs.cache
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\MiniTemplateEngine.sourcelink.json
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\MiniTemplateEngine.dll
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\refint\MiniTemplateEngine.dll
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\MiniTemplateEngine.pdb
+C:\kfu\oris\semestry\oris_semestry\HttpServer\MiniTemplateEngine\obj\Debug\net9.0\ref\MiniTemplateEngine.dll

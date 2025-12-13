@@ -120,13 +120,10 @@ internal sealed class Parser
 
     private bool Eof() =>_pos >= _src.Length;
 
-    private bool Peek(string s) // проверка, что впереди строка s
+    private bool Peek(string s)
     {
         if (_pos + s.Length > _src.Length) return false;
-        for (var i = 0; i < s.Length; i++)
-            if (_src[_pos + i] != s[i])
-                return false;
-        return true;
+        return !s.Where((t, i) => _src[_pos + i] != t).Any();
     }
 
     private void Expect(string s)

@@ -1,5 +1,3 @@
-Вот Markdown‑версия:
-
 ```markdown
 # HttpServer
 

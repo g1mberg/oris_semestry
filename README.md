@@ -2,10 +2,40 @@
 # HttpServer
 
 Учебный HTTP‑сервер на C# (.NET).
+## Запуск проекта локально
 
-## Настройки
+### 1. Клонирование репозитория
+```
+git clone https://github.com/g1mberg/oris_semestry
+```
 
-Основные настройки берутся из JSON‑файла `settings.json`:
+### 2. Восстановление зависимостей
+```
+dotnet restore
+```
+### 3. Сборка проекта
+```
+dotnet build
+```
+### 4. Запуск сервера
+```
+dotnet run
+```
+### 5. Запуск БД
+sql скрипт для восстановления базы данных находится по пути `oris_semestry\HttpServer\db\init.sql`, можно восстановить с помощью dbeaver и нажать инструменты -> восстановление и указать на место 
+После запуска сервер будет доступен по адресу:
+```
+http://localhost:1234/Turismo
+```
+---
+
+## Конфигурация
+
+Файл настроек находится по пути:
+
+Settings/settings.json
+
+Важно: папка Settings должна находиться рядом с исполняемым файлом.
 
 ```
 {
@@ -33,20 +63,9 @@
 В корне решения (где лежит `Dockerfile`):
 
 ```
-docker build -t httpserver .
+docker-compose down -v
+docker-compose up --build
 ```
-
-## Создание БД 
--нужно запустить sql скрипт заменив в нем `user_owner` на своего пользователя
-
-## Запуск с подключением к БД на хосте
-
-Пример запуска, если PostgreSQL запущен на хост‑машине:
+и все должно заработать
 
 
-```
-docker run --rm -p 1234:1234 --name httpserver \
-  -e APP_ENV=Docker \
-  -e CONNECTION_STRING="Host=host.docker.internal;Port=5432;Database=oris;Username=user_owner;Password=123456;Pooling=true" \
-  httpserver
-```

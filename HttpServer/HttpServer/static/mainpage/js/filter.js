@@ -6,7 +6,7 @@
     const startDateInput = document.getElementById('start-date');
     const endDateInput = document.getElementById('end-date');
     const sortBySelect = document.getElementById('sort-by');
-    const tagCheckboxes = document.querySelectorAll('input[name="tag"]');
+    const tagCheckboxes = document.getElementsByName("tag");
     const tourList = document.getElementById('cards');
     const resetButton = document.getElementById('reset-filters');
 
@@ -30,10 +30,9 @@
                 return !value || (!isNaN(value) && parseFloat(value) > 0);
             case 'startDate':
             case 'endDate':
-                if (!value) return true;
                 if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
-                if (value < today) return false;
-                return true;
+                return value >= today;
+                
             default:
                 return true;
         }
@@ -192,7 +191,7 @@
     initFiltersFromUrl();
     loadTours();
 
-    if (resetButton) resetButton.addEventListener('click', resetAllFilters);
+    resetButton.addEventListener('click', resetAllFilters);
 
     [searchInput, originCityInput, destinationInput].forEach(el => {
         if (el) el.addEventListener('input', updateUrlAndLoad);

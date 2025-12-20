@@ -67,5 +67,5 @@ function saveChanges() {
 }
 
 function cancelEdit() {
-    location.reload(); // просто перезагружаем
+    location.reload();
 }

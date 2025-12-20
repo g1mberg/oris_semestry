@@ -33,20 +33,9 @@
 В корне решения (где лежит `Dockerfile`):
 
 ```
-docker build -t httpserver .
+docker-compose down -v
+docker-compose up --build
 ```
-
-## Создание БД 
--нужно запустить sql скрипт заменив в нем `user_owner` на своего пользователя
-
-## Запуск с подключением к БД на хосте
-
-Пример запуска, если PostgreSQL запущен на хост‑машине:
+и все должно заработать
 
 
-```
-docker run --rm -p 1234:1234 --name httpserver \
-  -e APP_ENV=Docker \
-  -e CONNECTION_STRING="Host=host.docker.internal;Port=5432;Database=oris;Username=user_owner;Password=123456;Pooling=true" \
-  httpserver
-```

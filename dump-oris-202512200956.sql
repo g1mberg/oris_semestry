@@ -1,14 +1,3 @@
---
--- PostgreSQL database dump
---
-
-\restrict SfZjmf7UkXFhdLB7h3f4OQoohNN8UEvI7PNk2N5ijuZsJLDU55hgIhtakrSPOxw
-
--- Dumped from database version 16.10
--- Dumped by pg_dump version 16.10
-
--- Started on 2025-12-20 09:56:39
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -20,19 +9,12 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
---
--- TOC entry 4902 (class 1262 OID 25515)
--- Name: oris; Type: DATABASE; Schema: -; Owner: user_owner
---
 
-CREATE DATABASE oris WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'Russian_Russia.1251';
+CREATE DATABASE oriss WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'Russian_Russia.1251';
 
 
-ALTER DATABASE oris OWNER TO user_owner;
+ALTER DATABASE oriss OWNER TO user_owner;
 
-\unrestrict SfZjmf7UkXFhdLB7h3f4OQoohNN8UEvI7PNk2N5ijuZsJLDU55hgIhtakrSPOxw
-\connect oris
-\restrict SfZjmf7UkXFhdLB7h3f4OQoohNN8UEvI7PNk2N5ijuZsJLDU55hgIhtakrSPOxw
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -49,10 +31,7 @@ SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
---
--- TOC entry 218 (class 1259 OID 25709)
--- Name: sessions; Type: TABLE; Schema: public; Owner: postgres
---
+
 
 CREATE TABLE public.sessions (
     id integer NOT NULL,
@@ -61,7 +40,7 @@ CREATE TABLE public.sessions (
 );
 
 
-ALTER TABLE public.sessions OWNER TO postgres;
+ALTER TABLE public.sessions OWNER TO user_owner;
 
 --
 -- TOC entry 219 (class 1259 OID 25728)
@@ -225,12 +204,4 @@ ALTER TABLE ONLY public.users
 ALTER TABLE ONLY public.sessions
     ADD CONSTRAINT sessions_userid_fkey FOREIGN KEY (userid) REFERENCES public.users(id);
 
-
--- Completed on 2025-12-20 09:56:39
-
---
--- PostgreSQL database dump complete
---
-
-\unrestrict SfZjmf7UkXFhdLB7h3f4OQoohNN8UEvI7PNk2N5ijuZsJLDU55hgIhtakrSPOxw
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer\\HttpServer.csproj": {}
+    "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer\\HttpServer.csproj": {}
   },
   "projects": {
-    "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj": {
+    "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj",
+        "projectUniqueName": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj",
         "projectName": "HttpServer.Framework",
-        "projectPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj",
+        "projectPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj",
         "packagesPath": "C:\\Users\\муха\\.nuget\\packages\\",
-        "outputPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer.Framework\\obj\\",
+        "outputPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer.Framework\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj": {
-                "projectPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj"
+              "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj": {
+                "projectPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj"
               },
-              "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MyORM\\MyORM.csproj": {
-                "projectPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MyORM\\MyORM.csproj"
+              "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MyORM\\MyORM.csproj": {
+                "projectPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MyORM\\MyORM.csproj"
               }
             }
           }
@@ -67,20 +67,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -90,14 +76,14 @@
         }
       }
     },
-    "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer\\HttpServer.csproj": {
+    "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer\\HttpServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer\\HttpServer.csproj",
+        "projectUniqueName": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer\\HttpServer.csproj",
         "projectName": "HttpServer",
-        "projectPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer\\HttpServer.csproj",
+        "projectPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer\\HttpServer.csproj",
         "packagesPath": "C:\\Users\\муха\\.nuget\\packages\\",
-        "outputPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer\\obj\\",
+        "outputPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -118,14 +104,14 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj": {
-                "projectPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj"
+              "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj": {
+                "projectPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj"
               },
-              "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj": {
-                "projectPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj"
+              "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj": {
+                "projectPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj"
               },
-              "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MyORM\\MyORM.csproj": {
-                "projectPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MyORM\\MyORM.csproj"
+              "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MyORM\\MyORM.csproj": {
+                "projectPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MyORM\\MyORM.csproj"
               }
             }
           }
@@ -156,24 +142,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[9.0.10, 9.0.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -183,14 +151,14 @@
         }
       }
     },
-    "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj": {
+    "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj",
+        "projectUniqueName": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj",
         "projectName": "MiniTemplateEngine",
-        "projectPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj",
+        "projectPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj",
         "packagesPath": "C:\\Users\\муха\\.nuget\\packages\\",
-        "outputPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MiniTemplateEngine\\obj\\",
+        "outputPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MiniTemplateEngine\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -239,20 +207,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -262,14 +216,14 @@
         }
       }
     },
-    "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MyORM\\MyORM.csproj": {
+    "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MyORM\\MyORM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MyORM\\MyORM.csproj",
+        "projectUniqueName": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MyORM\\MyORM.csproj",
         "projectName": "MyORM",
-        "projectPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MyORM\\MyORM.csproj",
+        "projectPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MyORM\\MyORM.csproj",
         "packagesPath": "C:\\Users\\муха\\.nuget\\packages\\",
-        "outputPath": "C:\\kfu\\oris\\HW\\oris\\semestryworks\\SW1\\back\\HttpServer\\MyORM\\obj\\",
+        "outputPath": "C:\\kfu\\final_check\\oris_semestry\\HttpServer\\MyORM\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -328,20 +282,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

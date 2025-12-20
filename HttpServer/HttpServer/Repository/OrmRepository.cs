@@ -7,7 +7,7 @@ namespace HttpServer.Repository;
 public class OrmRepository<T>(string tableName) : IRepository<T>
     where T : class, new()
 {
-    private readonly OrmContext _orm = new OrmContext(SettingsManager.Instance.Settings.ConnectionString!);
+    private readonly OrmContext _orm = new(SettingsManager.Instance.Settings.ConnectionString!);
     public IEnumerable<T> GetAll() =>
         _orm.ReadAll<T>(tableName);
 

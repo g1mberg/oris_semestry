@@ -2,5 +2,5 @@
   "StaticDirectoryPath": "static",
   "Domain": "http://*",
   "Port": "1234",
-  "ConnectionString": "Host=host.docker.internal;Port=5432;Database=oris;Username=user_owner;Password=123456;Pooling=true"
+  "ConnectionString": "Host=db;Port=5432;Database=oris;Username=postgres;Password=123456;Pooling=true"
 }

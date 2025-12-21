@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict SfZjmf7UkXFhdLB7h3f4OQoohNN8UEvI7PNk2N5ijuZsJLDU55hgIhtakrSPOxw
+\restrict btjNReYUbF9feKhJ23GYqVhnalBrqF4SX3bDvNz3a8Cl4WYkMRWt7CGm0UtdY5f
 
 -- Dumped from database version 16.10
 -- Dumped by pg_dump version 16.10
 
--- Started on 2025-12-20 09:56:39
+-- Started on 2025-12-21 15:10:09
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -25,11 +25,9 @@ SET row_security = off;
 -- Name: oris; Type: DATABASE; Schema: -; Owner: user_owner
 --
 
-
-
-
-\unrestrict SfZjmf7UkXFhdLB7h3f4OQoohNN8UEvI7PNk2N5ijuZsJLDU55hgIhtakrSPOxw
-\restrict SfZjmf7UkXFhdLB7h3f4OQoohNN8UEvI7PNk2N5ijuZsJLDU55hgIhtakrSPOxw
+\unrestrict btjNReYUbF9feKhJ23GYqVhnalBrqF4SX3bDvNz3a8Cl4WYkMRWt7CGm0UtdY5f
+\connect httpserver
+\restrict btjNReYUbF9feKhJ23GYqVhnalBrqF4SX3bDvNz3a8Cl4WYkMRWt7CGm0UtdY5f
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -48,7 +46,7 @@ SET default_table_access_method = heap;
 
 --
 -- TOC entry 218 (class 1259 OID 25709)
--- Name: sessions; Type: TABLE; Schema: public; Owner: postgres
+-- Name: sessions; Type: TABLE; Schema: public; Owner: user_owner
 --
 
 CREATE TABLE public.sessions (
@@ -57,11 +55,9 @@ CREATE TABLE public.sessions (
     expiresat timestamp without time zone NOT NULL
 );
 
-
-
 --
 -- TOC entry 219 (class 1259 OID 25728)
--- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: user_owner
 --
 
 ALTER TABLE public.sessions ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
@@ -84,15 +80,16 @@ CREATE TABLE public.tours (
     name character varying,
     origin character varying,
     status character varying,
-    cost real,
+    regular_cost numeric,
     img character varying,
     tags character varying,
     datestart timestamp with time zone,
     dateend timestamp with time zone,
-    destination character varying
+    destination character varying,
+    description character varying,
+    commercial_cost numeric,
+    people smallint
 );
-
-
 
 --
 -- TOC entry 216 (class 1259 OID 25689)
@@ -106,8 +103,6 @@ CREATE TABLE public.users (
     salt bytea NOT NULL,
     isadmin boolean
 );
-
-
 
 --
 -- TOC entry 217 (class 1259 OID 25708)
@@ -127,7 +122,7 @@ ALTER TABLE public.users ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 --
 -- TOC entry 4895 (class 0 OID 25709)
 -- Dependencies: 218
--- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: user_owner
 --
 
 INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (13, 2, '2025-11-29 09:59:12.595727');
@@ -145,6 +140,10 @@ INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (27, 2, '2025-12-06 0
 INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (28, 2, '2025-12-06 06:23:13.965037');
 INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (29, 2, '2025-12-11 16:35:04.846181');
 INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (30, 2, '2025-12-13 11:33:27.915419');
+INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (31, 2, '2025-12-20 14:39:59.678622');
+INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (32, 2, '2025-12-21 13:48:18.922414');
+INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (33, 2, '2025-12-21 14:49:06.379178');
+INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (34, 2, '2025-12-21 16:09:10.170892');
 
 
 --
@@ -153,14 +152,14 @@ INSERT INTO public.sessions OVERRIDING SYSTEM VALUE VALUES (30, 2, '2025-12-13 1
 -- Data for Name: tours; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.tours VALUES (1, 'Réveillon 2026', 'Curitiba', 'Confirmada', 236.5, 'https://www.sescpr.com.br/wp-content/uploads/2019/12/bentogon%C3%A7alves-vnicola-rio-720x406.jpg', '["Feriados", "Lazer", "Viaja+ Família"]', '2026-03-12 11:00:00+03', '2026-03-12 11:00:00+03', 'Bento Gonçalves-RS');
-INSERT INTO public.tours VALUES (3, 'sadaqwadasds', 'Curitiba', 'Confirmada', 12, 'https://www.sescpr.com.br/wp-content/uploads/2019/09/Colombo-Circ-Italiano-720x406.jpg', '["Feriados",
+INSERT INTO public.tours VALUES (2, 'Buraco do Paddaad', 'Perudo', 'Non', 214, 'https://www.sescpr.com.br/wp-content/uploads/2019/08/passeio-de-trem-foto-serra-verde-express-1508x706_c.jpg', NULL, '2026-03-27 14:00:00+03', '2026-03-27 14:00:00+03', 'Curitiba-PR', 'Capital Catarinense das águas quentes e termais, uma das melhores águas em qualidade terapêutica.', 209, 6);
+INSERT INTO public.tours VALUES (3, 'asd', 'Curitiba', 'Confirmada', 1223, 'https://www.sescpr.com.br/wp-content/uploads/2019/09/Colombo-Circ-Italiano-720x406.jpg', '["Feriados",
 "Histórico cultural",
 "Lazer",
 "Passeio",
 "Viaja+ Família",
-"Viaje pelo Paraná!"]', '2026-03-27 14:00:00+03', '2026-03-27 14:00:00+03', NULL);
-INSERT INTO public.tours VALUES (2, 'Buraco do Paddaad<div><br></div>', 'Perudo', 'Non', 214, 'https://www.sescpr.com.br/wp-content/uploads/2019/08/passeio-de-trem-foto-serra-verde-express-1508x706_c.jpg', NULL, '2026-03-27 14:00:00+03', '2026-03-27 14:00:00+03', 'Curitiba-PR');
+"Viaje pelo Paraná!"]', '2026-03-27 14:00:00+03', '2026-03-27 14:00:00+03', NULL, 'Q', 12, 12);
+INSERT INTO public.tours VALUES (1, 'Réveillon 2026', 'Curitiba', 'Confirmada', 11, 'https://www.sescpr.com.br/wp-content/uploads/2019/12/bentogon%C3%A7alves-vnicola-rio-720x406.jpg', '["Feriados", "Lazer", "Viaja+ Família"]', '2026-03-12 11:00:00+03', '2026-03-12 11:00:00+03', 'Bento Gonçalves-RS', 'A cidade está localizada na região da Tríplice Fronteira, fazendo divisa com o Paraguai e a Argentina. Seu principal atrativo turístico são as Cataratas do Iguaçu, eleitas em 2011 uma das Sete Novas Maravilhas da Natureza.', 210, 6);
 
 
 --
@@ -178,10 +177,10 @@ INSERT INTO public.users OVERRIDING SYSTEM VALUE VALUES (4, '1', '\x89b0941c6f4a
 --
 -- TOC entry 4903 (class 0 OID 0)
 -- Dependencies: 219
--- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user_owner
 --
 
-SELECT pg_catalog.setval('public.sessions_id_seq', 30, true);
+SELECT pg_catalog.setval('public.sessions_id_seq', 34, true);
 
 
 --
@@ -195,7 +194,7 @@ SELECT pg_catalog.setval('public.users_id_seq', 4, true);
 
 --
 -- TOC entry 4747 (class 2606 OID 25723)
--- Name: sessions sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: sessions sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: user_owner
 --
 
 ALTER TABLE ONLY public.sessions
@@ -213,18 +212,18 @@ ALTER TABLE ONLY public.users
 
 --
 -- TOC entry 4748 (class 2606 OID 25716)
--- Name: sessions sessions_userid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: sessions sessions_userid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: user_owner
 --
 
 ALTER TABLE ONLY public.sessions
     ADD CONSTRAINT sessions_userid_fkey FOREIGN KEY (userid) REFERENCES public.users(id);
 
 
--- Completed on 2025-12-20 09:56:39
+-- Completed on 2025-12-21 15:10:09
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict SfZjmf7UkXFhdLB7h3f4OQoohNN8UEvI7PNk2N5ijuZsJLDU55hgIhtakrSPOxw
+\unrestrict btjNReYUbF9feKhJ23GYqVhnalBrqF4SX3bDvNz3a8Cl4WYkMRWt7CGm0UtdY5f
 

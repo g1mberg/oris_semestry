@@ -5,7 +5,7 @@ using MyORM;
 namespace HttpServer.Repository;
 
 public class OrmRepository<T>(string tableName) : IRepository<T>
-    where T : class, new()
+    where T : class, RepoTable, new()
 {
     private readonly OrmContext _orm = new(SettingsManager.Instance.Settings.ConnectionString!);
     public IEnumerable<T> GetAll() =>
@@ -24,7 +24,10 @@ public class OrmRepository<T>(string tableName) : IRepository<T>
         _orm.Create(entity, tableName);
 
     public void Update(int id, T entity) =>
-        _orm.Update(id, entity, tableName);
+        _orm.Update(entity.Id, entity, tableName);
+    
+    public void Update(T entity) =>
+        _orm.Update(entity.Id, entity, tableName);
 
     public void Delete(int id) =>
         _orm.Delete(Convert.ToInt32(id), tableName);

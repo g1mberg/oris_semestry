@@ -1,71 +1,169 @@
-﻿const editableSelectors = [
-    ".tour-header .title",
-    ".tour-body p",
-    ".more-info",
-    ".offer",
-    ".tour-price-type",
-    ".tour-price-installment",
-    ".tour-price-single",
-    ".payment-section .text"
-];
+﻿const editBtn = document.getElementById("editTourBtn");
 
-document.getElementById("editTourBtn").addEventListener("click", () => {
-    enableEditMode();
-});
+const tourId = editBtn.dataset.tourId;
+let initialState = null;
+let panelEl = null;
 
-function enableEditMode() {
-    // Делаем редактируемыми
-    editableSelectors.forEach(sel => {
-        document.querySelectorAll(sel).forEach(el => {
-            el.setAttribute("contenteditable", "true");
-            el.style.outline = "2px solid #ff9800";
-            el.style.padding = "3px";
-        });
-    });
+editBtn.addEventListener("click", toggleEditMode);
 
-    // Появляется панель «Сохранить / Отмена»
-    showSavePanel();
+function toggleEditMode() {
+    if (panelEl) {
+        cancelEdit();
+        return;
+    }
+
+    initialState = snapshotContent();
+    setEditable(true);
+    createSavePanel();
 }
 
-function showSavePanel() {
-    const panel = document.createElement("div");
-    panel.className = "save-panel";
-    panel.innerHTML = `
-        <button class="save-btn">Сохранить</button>
-        <button class="cancel-btn">Отмена</button>
+function snapshotContent() {
+    return {
+        'tour-title': getElementText('tour-title'),
+        'tour-desc': getElementText('tour-desc'),
+        'price-1': getElementText('price-1'),
+        'price-2': getElementText('price-2'),
+    };
+}
+
+function getElementText(id) {
+    const el = document.getElementById(id);
+    return el ? el.innerText.trim() : '';
+}
+
+function getChangedFields() {
+    if (!initialState) return {};
+
+    const currentState = snapshotContent();
+    const changes = {};
+
+    Object.entries(currentState).forEach(([id, currentText]) => {
+        const initialText = initialState[id];
+        if (currentText !== initialText || !currentText) {
+            changes[id] = currentText;
+        }
+    });
+
+    return changes;
+}
+
+function restoreContent(state) {
+    Object.entries(state).forEach(([id, text]) => {
+        const el = document.getElementById(id);
+        if (el && text !== undefined) {
+            el.textContent = text;
+        }
+    });
+}
+
+function setEditable(isEditable) {
+    const ids = [
+        'tour-title', 'tour-desc', 'price-1', 'price-2'
+    ];
+
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.contentEditable = isEditable;
+            el.classList.toggle("editable-highlight", isEditable);
+        }
+    });
+}
+
+function createSavePanel() {
+    panelEl = document.createElement("div");
+    panelEl.className = "save-panel";
+    panelEl.innerHTML = `
+        <button class="save-btn" type="button">Сохранить изменения</button>
+        <button class="cancel-btn" type="button">Отмена</button>
     `;
-    document.body.appendChild(panel);
 
-    panel.querySelector(".save-btn").onclick = saveChanges;
-    panel.querySelector(".cancel-btn").onclick = cancelEdit;
+    panelEl.querySelector(".save-btn").onclick = saveChanges;
+    panelEl.querySelector(".cancel-btn").onclick = cancelEdit;
+    document.body.appendChild(panelEl);
 }
 
-function collectData() {
-    let data = {};
-
-    editableSelectors.forEach(sel => {
-        let elements = document.querySelectorAll(sel);
-        data[sel] = [];
-
-        elements.forEach(el => data[sel].push(el.innerHTML));
-    });
-
-    return data;
+function destroySavePanel() {
+    if (panelEl) {
+        panelEl.remove();
+        panelEl = null;
+    }
 }
 
-function saveChanges() {
-    const data = collectData();
-    const tourId = document.getElementById("editTourBtn").dataset.tourId;
+async function saveChanges() {
+    if (!tourId) return;
 
-    fetch(`/admin/save-tour?id=${tourId}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
-    .then(r => r.text())
-    .then(_ => location.reload());
+    const changes = getChangedFields();
+
+    if (Object.keys(changes).length === 0) {
+        console.log("Изменений нет");
+        setEditable(false);
+        destroySavePanel();
+        initialState = null;
+        return;
+    }
+    
+    const errors = validate();
+    if (errors.length > 0) {
+        console.error("Ошибки валидации:", errors);
+        alert("Исправьте ошибки:\n" + errors.join('\n'));
+        return;
+    }
+
+    console.log("Отправляем изменения:", changes);
+
+    try {
+        const response = await fetch(`/admin/save-tour?id=${encodeURIComponent(tourId)}`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({changes})
+        });
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        console.log("Сохранено!");
+        setEditable(false);
+        destroySavePanel();
+        initialState = null;
+
+    } catch (e) {
+        console.error("Ошибка:", e);
+    }
 }
 
 function cancelEdit() {
-    location.reload();
+    restoreContent(initialState);
+    setEditable(false);
+    destroySavePanel();
+    initialState = null;
 }
+
+function validate() {
+    const errors = [];
+    const allFields = snapshotContent();
+    
+    ['price-1', 'price-2'].forEach(id => {
+        const text = allFields[id];
+
+        if (!text || text.trim() === '') {
+            errors.push(`${id}: обязательно`);
+            return;
+        }
+
+        const isValidNumber = text.trim().match(/^[\d\s]+(?:,[\d]{2})?$/);
+        if (!isValidNumber) {
+            errors.push(`${id}: только число (123 или 123,45)`);
+        }
+    });
+    
+    ['tour-title', 'tour-desc'].forEach(id => {
+        const text = allFields[id];
+        if (!text || text.trim() === '') {
+            errors.push(`${id}: обязательно`);
+        }
+    });
+
+    return errors;
+}
+
+

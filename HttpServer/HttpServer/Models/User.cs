@@ -2,7 +2,7 @@
 
 namespace HttpServer.Models;
 
-public class User
+public class User : RepoTable
 {
     [PrimaryKey]
     public int Id { get; set; }

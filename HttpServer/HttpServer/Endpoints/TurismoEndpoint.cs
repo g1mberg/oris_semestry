@@ -77,7 +77,7 @@ internal class TurismoEndpoint : BaseEndpoint
         using var reader = new StreamReader(input, request.ContentEncoding);
 
         var body = reader.ReadToEnd();
-
+        
         if (!int.TryParse(request.QueryString["id"], out var id) || !_tourRepo.TryGetById(id, out var tour))
         {
             context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -85,9 +85,8 @@ internal class TurismoEndpoint : BaseEndpoint
             return;
         }
         
-        TourCard.ReadJson(body, tour);
-
-        _tourRepo.Update(id, tour!);
+        TourCard.ReadJson(body, tour!);
+        _tourRepo.Update(tour!);
         context.Response.Close();
     }
 }

@@ -194,10 +194,12 @@ body {
     font-size: 20px;
     cursor: pointer;
 }
-
-/* Индивидуальные цвета соц. сетей (по желанию) */
 .share-item.facebook { color: #3b5998; }
 .share-item.whatsapp { color: #25d366; }
 .share-item.twitter { color: #1da1f2; }
 .share-item.link { color: #4c4c4a; }
 
+.editable-highlight {
+    outline: 2px solid #ff9800;
+    padding: 3px;
+}
